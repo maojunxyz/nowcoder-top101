@@ -1,0 +1,23 @@
+= BM1 反转链表
+
+```
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        //处理空链表 fast-template
+        if (head == null)
+            return null;
+        ListNode cur = head;
+        ListNode pre = null;
+        while (cur != null) {
+            //断开链表，要记录后续一个
+            ListNode temp = cur.next;
+            //当前的next指向前一个
+            cur.next = pre;
+            //前一个更新为当前
+            pre = cur;
+            //当前更新为刚刚记录的后一个
+            cur = temp;
+        }
+        return pre;}
+}
+```
